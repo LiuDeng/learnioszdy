@@ -73,14 +73,22 @@
     }
     
     
-    
-    FMResultSet *rs = [db executeQuery:@"Select title,content FROM article Where title = '%@'",titleName];
-    
+    NSString *queryStr =    [[NSString alloc] initWithFormat:@"select * FROM article where id = '%@'",@"44"];
+  
+    FMResultSet *rs = [db executeQuery:queryStr];
+ 
     NSLog(@"Select content FROM article Where title = '%@'",titleName);
-        
-    titleLabel.text = titleName;
+    NSString *content;
+    NSString *summery;
     
-    titleLabel.text = [rs stringForColumn:@"title"];
+    while ([rs next]) {
+        
+        titleLabel.text = [rs stringForColumn:@"title"];
+        content = [rs stringForColumn:@"content"];
+        summery = [rs stringForColumn:@"summary"];
+    
+    }
+    
     
     NSLog(@"titleLabel.text:%@",titleLabel.text);
     
