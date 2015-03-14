@@ -10,4 +10,7 @@
 
 @interface RecoAppsTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSString *zhou;
+@property (nonatomic, strong) NSString *category;
+
 @end

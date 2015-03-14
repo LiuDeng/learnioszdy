@@ -10,8 +10,9 @@
 #import "VideoData.h"
 #import <AFNetworking.h>   
 #import "FMDatabase.h"
-#import "VideoDetailViewController.h"
+#import "RecoAppsTableViewController.h"
 #import <MobClick.h>
+
 
 
 @interface RecVideoTableViewController ()<UITableViewDelegate>
@@ -65,8 +66,7 @@
         NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cartegory.db"];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
         
-        NSLog(@"defaultDBPath: %@", defaultDBPath);
-        NSLog(@"dbpath: %@", dbpath);
+        
 
 
         
@@ -203,14 +203,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reccell" forIndexPath:indexPath];
     
     VideoData *currentVideo = [videoDatas objectAtIndex:indexPath.row];
-    UILabel *zhouLabel = (UILabel *)[cell viewWithTag:0];
+    UILabel *zhouLabel = (UILabel *)[cell viewWithTag:4];
     UIImageView *picImageView = (UIImageView *)[cell viewWithTag:1];
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
     UILabel *contentLabel = (UILabel *)[cell viewWithTag:3];
     
-    
+    NSString *imageName = [currentVideo.urlimage stringByReplacingOccurrencesOfString:@"image/" withString:@""];
         
-    picImageView.image = [UIImage imageNamed:currentVideo.urlimage];
+    picImageView.image = [UIImage imageNamed:imageName];
+    
+    //NSLog(@"picImageView:%@",currentVideo.urlimage);
         
     
     
@@ -237,9 +239,10 @@
     
     
     
-    VideoDetailViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoDetailViewController"];
-    videoVC._id = currentVideo._id;
-    videoVC.titlename = currentVideo.title;
+    RecoAppsTableViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RecoAppsTableViewController"];
+    //NSLog(@"zhou: %@",currentVideo.zhou);
+    videoVC.zhou = currentVideo.zhou;
+    videoVC.category = currentVideo.category;
     videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
     

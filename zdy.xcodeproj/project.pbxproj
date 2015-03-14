@@ -54,6 +54,7 @@
 		D801322A1AB2DC480053D3E1 /* 38.png in Resources */ = {isa = PBXBuildFile; fileRef = D80132021AB2DC480053D3E1 /* 38.png */; };
 		D801322B1AB2DC480053D3E1 /* 39.png in Resources */ = {isa = PBXBuildFile; fileRef = D80132031AB2DC480053D3E1 /* 39.png */; };
 		D801322C1AB2DC480053D3E1 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = D80132041AB2DC480053D3E1 /* 40.png */; };
+		D80132301AB440F80053D3E1 /* KnowData.m in Sources */ = {isa = PBXBuildFile; fileRef = D801322F1AB440F80053D3E1 /* KnowData.m */; };
 		D859E15E1A9A0E5E00558761 /* jianfeicaoheji.plist in Resources */ = {isa = PBXBuildFile; fileRef = D859E15D1A9A0E5E00558761 /* jianfeicaoheji.plist */; };
 		D859E1701A9A0F1700558761 /* jianfei.plist in Resources */ = {isa = PBXBuildFile; fileRef = D859E15F1A9A0F1700558761 /* jianfei.plist */; };
 		D859E1711A9A0F1700558761 /* jianfei1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D859E1601A9A0F1700558761 /* jianfei1@2x.png */; };
@@ -176,6 +177,8 @@
 		D80132031AB2DC480053D3E1 /* 39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 39.png; sourceTree = "<group>"; };
 		D80132041AB2DC480053D3E1 /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
 		D801322D1AB2E2920053D3E1 /* cartegory.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = cartegory.db; sourceTree = "<group>"; };
+		D801322E1AB440F80053D3E1 /* KnowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowData.h; sourceTree = "<group>"; };
+		D801322F1AB440F80053D3E1 /* KnowData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowData.m; sourceTree = "<group>"; };
 		D859E15D1A9A0E5E00558761 /* jianfeicaoheji.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = jianfeicaoheji.plist; sourceTree = "<group>"; };
 		D859E15F1A9A0F1700558761 /* jianfei.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = jianfei.plist; sourceTree = "<group>"; };
 		D859E1601A9A0F1700558761 /* jianfei1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jianfei1@2x.png"; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				D859E1A11A9A1B8200558761 /* SeriDetailTableViewController.m */,
 				D859E1A31A9A296F00558761 /* VideoData.h */,
 				D859E1A41A9A296F00558761 /* VideoData.m */,
+				D801322E1AB440F80053D3E1 /* KnowData.h */,
+				D801322F1AB440F80053D3E1 /* KnowData.m */,
 				D8A10FAE1A9AD35800DB9070 /* zdy-Prefix.pch */,
 				D8A10FC41A9C3CE800DB9070 /* VideoDetailViewController.h */,
 				D8A10FC51A9C3CE800DB9070 /* VideoDetailViewController.m */,
@@ -711,6 +716,7 @@
 				D859E1A51A9A296F00558761 /* VideoData.m in Sources */,
 				D8A10FCF1A9C522800DB9070 /* RecoAppsTableViewController.m in Sources */,
 				D859E1961A9A15AF00558761 /* SeriesVideoTableViewController.m in Sources */,
+				D80132301AB440F80053D3E1 /* KnowData.m in Sources */,
 				D80131D61AB2930F0053D3E1 /* FMDatabaseQueue.m in Sources */,
 				D859E19F1A9A1AFD00558761 /* WebViewDetailViewController.m in Sources */,
 				D859E19C1A9A160F00558761 /* CommenQuestionTableViewController.m in Sources */,
