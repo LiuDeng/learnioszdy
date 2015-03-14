@@ -83,6 +83,7 @@
 		D859E19F1A9A1AFD00558761 /* WebViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D859E19E1A9A1AFD00558761 /* WebViewDetailViewController.m */; };
 		D859E1A21A9A1B8200558761 /* SeriDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D859E1A11A9A1B8200558761 /* SeriDetailTableViewController.m */; };
 		D859E1A51A9A296F00558761 /* VideoData.m in Sources */ = {isa = PBXBuildFile; fileRef = D859E1A41A9A296F00558761 /* VideoData.m */; };
+		D87349DF1AB3DD1B0050A059 /* cartegory.db in Resources */ = {isa = PBXBuildFile; fileRef = D801322D1AB2E2920053D3E1 /* cartegory.db */; };
 		D8A10FA91A9AD29C00DB9070 /* FUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A10FA81A9AD29C00DB9070 /* FUtils.m */; };
 		D8A10FAC1A9AD2C500DB9070 /* UIImageView+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A10FAB1A9AD2C500DB9070 /* UIImageView+Circle.m */; };
 		D8A10FB01A9ADFB600DB9070 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A10FAF1A9ADFB600DB9070 /* libz.dylib */; };
@@ -610,6 +611,7 @@
 				D80132161AB2DC480053D3E1 /* 18.png in Resources */,
 				D80132061AB2DC480053D3E1 /* 2.png in Resources */,
 				D8A10FC31A9C379000DB9070 /* m_3.png in Resources */,
+				D87349DF1AB3DD1B0050A059 /* cartegory.db in Resources */,
 				D859E1781A9A0F1700558761 /* m_1.png in Resources */,
 				D859E17C1A9A0F1700558761 /* MysteryList.plist in Resources */,
 				D80132291AB2DC480053D3E1 /* 37.png in Resources */,
@@ -848,7 +850,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4e6bf5b1-b380-434f-b364-32078cb58379";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -869,7 +871,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4e6bf5b1-b380-434f-b364-32078cb58379";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
