@@ -10,7 +10,7 @@
 
 @interface VideoDetailViewController : UIViewController
 
-@property(nonatomic ,strong) NSString *titleName;
+@property(nonatomic ,strong) NSString *_id;
 
 
 @end

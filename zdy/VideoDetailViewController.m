@@ -34,7 +34,7 @@
 @end
 
 @implementation VideoDetailViewController
-@synthesize titleName;
+@synthesize _id;
 
 @synthesize banner;
 
@@ -72,20 +72,24 @@
         return;
     }
     
+    NSString *queryStr =    [[NSString alloc] initWithFormat:@"select * FROM article where id = \"%@\"",_id];
     
+    FMResultSet *rs = [db executeQuery:queryStr];
     
-    FMResultSet *rs = [db executeQuery:@"Select title,content FROM article Where title = '%@'",titleName];
-    
-    NSLog(@"Select content FROM article Where title = '%@'",titleName);
+    //NSLog(@"Select content FROM article Where title = '%@'",titleName);
         
-    titleLabel.text = titleName;
+    [rs next];
     
     titleLabel.text = [rs stringForColumn:@"title"];
     
     NSLog(@"titleLabel.text:%@",titleLabel.text);
     
     //不明白baseURL传入的这个参数，html的资源在upload里
-    //[weburlWebview loadHTMLString:[rs stringForColumn:@"content"] baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
+    
+    NSString *htmlStr = [[rs stringForColumn:@"content"] stringByReplacingOccurrencesOfString:@"upload/" withString:@""];
+
+    
+    [weburlWebview loadHTMLString:htmlStr baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
         
     
         
@@ -96,42 +100,42 @@
     
     
     
-    if (!UIUserInterfaceIdiomPad == [UIDevice currentDevice].userInterfaceIdiom) {
-        
-        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
-        
-        
-    }else{
-        
-        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeLeaderboard];
-        
-        
-    }
-   
-    banner.adUnitID = GOOGLEADSBANNERKEY;
-    
-    
-    banner.rootViewController = self;
-    
-    
-    if([[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]){
-        return;
-    }
-    
-    
-    if (APPDELEGATE.noads ) {
-        return;
-    }
-  
-    [self.view addSubview:banner];
-    [banner setDelegate:self];
-    GADRequest *request = [GADRequest request];
-    [banner loadRequest:request];
-    
-    interstitial_ = [[GADInterstitial alloc] init];
-    interstitial_.adUnitID = GOOGLEADSADPOSTERKEY;
-    [interstitial_ loadRequest:[GADRequest request]];
-    interstitial_.delegate = self;
+//    if (!UIUserInterfaceIdiomPad == [UIDevice currentDevice].userInterfaceIdiom) {
+//        
+//        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
+//        
+//        
+//    }else{
+//        
+//        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeLeaderboard];
+//        
+//        
+//    }
+//   
+//    banner.adUnitID = GOOGLEADSBANNERKEY;
+//    
+//    
+//    banner.rootViewController = self;
+//    
+//    
+//    if([[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]){
+//        return;
+//    }
+//    
+//    
+//    if (APPDELEGATE.noads ) {
+//        return;
+//    }
+//  
+//    [self.view addSubview:banner];
+//    [banner setDelegate:self];
+//    GADRequest *request = [GADRequest request];
+//    [banner loadRequest:request];
+//    
+//    interstitial_ = [[GADInterstitial alloc] init];
+//    interstitial_.adUnitID = GOOGLEADSADPOSTERKEY;
+//    [interstitial_ loadRequest:[GADRequest request]];
+//    interstitial_.delegate = self;
 
 
 
