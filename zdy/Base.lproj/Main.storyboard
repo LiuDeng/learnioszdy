@@ -13,7 +13,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="b71-Yc-O7H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -167,48 +167,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNi-eg-rGl">
-                                <rect key="frame" x="139" y="121" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz1-7b-Som">
+                                <rect key="frame" x="7" y="72" width="307" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="307" id="meE-dz-BDT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.94901967050000002" green="0.1294117719" blue="0.61176472900000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kIP-ql-wdY">
-                                <rect key="frame" x="48" y="200" width="224" height="168"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="224" id="B6C-HB-ugU"/>
-                                    <constraint firstAttribute="height" constant="168" id="iJ1-Zt-LNd"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIx-UJ-yb1">
-                                <rect key="frame" x="127" y="251" width="66" height="66"/>
-                                <state key="normal" image="play_youtube.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playvideo:" destination="Gzv-Pp-0BM" eventType="touchUpInside" id="03j-yC-Pv9"/>
-                                </connections>
-                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UM-MZ-fuv">
+                                <rect key="frame" x="7" y="101" width="306" height="467"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="TNi-eg-rGl" secondAttribute="centerX" id="FfP-ni-Q4A"/>
-                            <constraint firstAttribute="centerX" secondItem="kIP-ql-wdY" secondAttribute="centerX" id="HxI-jS-egD"/>
-                            <constraint firstItem="lIx-UJ-yb1" firstAttribute="centerY" secondItem="kIP-ql-wdY" secondAttribute="centerY" id="azR-aW-cke"/>
-                            <constraint firstAttribute="centerY" secondItem="kIP-ql-wdY" secondAttribute="centerY" id="dpt-JC-8Aj"/>
-                            <constraint firstItem="lIx-UJ-yb1" firstAttribute="centerX" secondItem="kIP-ql-wdY" secondAttribute="centerX" id="mqK-az-myI"/>
-                            <constraint firstItem="TNi-eg-rGl" firstAttribute="top" secondItem="sqT-3L-qEK" secondAttribute="bottom" constant="57" id="nER-fd-xdD"/>
+                            <constraint firstItem="3UM-MZ-fuv" firstAttribute="top" secondItem="Jz1-7b-Som" secondAttribute="bottom" constant="8" id="UZA-CZ-EDI"/>
+                            <constraint firstItem="Jz1-7b-Som" firstAttribute="centerX" secondItem="3es-LZ-Mvr" secondAttribute="centerX" id="Xs9-Jy-CZZ"/>
+                            <constraint firstItem="3UM-MZ-fuv" firstAttribute="leading" secondItem="3es-LZ-Mvr" secondAttribute="leading" constant="7" id="inc-pi-L4f"/>
+                            <constraint firstAttribute="trailing" secondItem="3UM-MZ-fuv" secondAttribute="trailing" constant="7" id="kuY-m1-hXK"/>
+                            <constraint firstAttribute="bottom" secondItem="3UM-MZ-fuv" secondAttribute="bottom" id="uaf-qS-OP9"/>
+                            <constraint firstItem="Jz1-7b-Som" firstAttribute="top" secondItem="sqT-3L-qEK" secondAttribute="bottom" constant="8" symbolic="YES" id="ybV-7C-Tbg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kvV-BS-psA"/>
                     <connections>
-                        <outlet property="titleLabel" destination="TNi-eg-rGl" id="O0M-Mt-GqT"/>
-                        <outlet property="videobg" destination="kIP-ql-wdY" id="cRw-eU-Znc"/>
+                        <outlet property="titleLabel" destination="Jz1-7b-Som" id="qGL-77-806"/>
+                        <outlet property="weburlWebview" destination="3UM-MZ-fuv" id="hcY-TL-OlE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkF-Gl-hc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="236"/>
+            <point key="canvasLocation" x="2607" y="226"/>
         </scene>
         <!--系列视频-->
         <scene sceneID="fWQ-B4-wiX">
@@ -653,7 +644,6 @@
     </scenes>
     <resources>
         <image name="cell_icon_theme.png" width="16" height="16"/>
-        <image name="play_youtube.png" width="66" height="66"/>
         <image name="settings_feedback_line_black.png" width="20" height="20"/>
         <image name="settings_rate_line_black.png" width="20" height="20"/>
         <image name="settings_tutorial_line_black.png" width="20" height="20"/>

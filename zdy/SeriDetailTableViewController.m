@@ -122,7 +122,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     VideoDetailViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoDetailViewController"];
-    videoVC._id = [playids objectAtIndex:indexPath.row];
+    //videoVC._id = [playids objectAtIndex:indexPath.row];
     videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
     

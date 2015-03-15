@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zdy/VideoDetailViewController.m"
-            timestampString = "447770264.892139"
+            timestampString = "448076212.401664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>

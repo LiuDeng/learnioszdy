@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DirectionMPMoviePlayer.h"  //播放
 
 @interface VideoDetailViewController : UIViewController
-@property (nonatomic, strong)DirectionMPMoviePlayer *moviePlayer;
 
-@property(nonatomic ,strong) NSString *_id;
-@property(nonatomic ,strong) NSString *titlename;
+@property(nonatomic ,strong) NSString *titleName;
 
 
 @end

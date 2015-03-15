@@ -7,6 +7,7 @@
 //
 
 #import "VideoDetailViewController.h"
+#import "FMDatabase.h"
 #import <AFNetworking/AFNetworking.h>
 @import GoogleMobileAds;
 #import <MobClick.h>
@@ -16,10 +17,13 @@
 @interface VideoDetailViewController ()<GADBannerViewDelegate,GADInterstitialDelegate>
 {
     
-    IBOutlet UILabel *titleLabel;
-    IBOutlet UIImageView *videobg;
     
-    NSString *videourl;
+    __weak IBOutlet UILabel *titleLabel;
+    
+    
+    __weak IBOutlet UIWebView *weburlWebview;
+    
+    
     GADInterstitial *interstitial_;
 
 
@@ -30,16 +34,64 @@
 @end
 
 @implementation VideoDetailViewController
-@synthesize _id;
-@synthesize moviePlayer;
-@synthesize titlename;
+@synthesize titleName;
+
 @synthesize banner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    titleLabel.text = titlename;
-    self.title = @"视频详情";
+    NSLog(@"success");
+    self.title = @"详情内容";
+    
+    
+    
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    
+    NSString *dbpath = [self getDBPath];
+    BOOL success = [fileManager fileExistsAtPath:dbpath];
+    
+    if(!success) {
+        
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cartegory.db"];
+        success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
+        
+        
+        
+        
+        
+        
+        if (!success)
+            NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+    }
+    FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
+    if (![db open]) {
+        // error
+        return;
+    }
+    
+    
+    
+    FMResultSet *rs = [db executeQuery:@"Select title,content FROM article Where title = '%@'",titleName];
+    
+    NSLog(@"Select content FROM article Where title = '%@'",titleName);
+        
+    titleLabel.text = titleName;
+    
+    titleLabel.text = [rs stringForColumn:@"title"];
+    
+    NSLog(@"titleLabel.text:%@",titleLabel.text);
+    
+    //不明白baseURL传入的这个参数，html的资源在upload里
+    //[weburlWebview loadHTMLString:[rs stringForColumn:@"content"] baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
+        
+    
+        
+   
+    
+    [db close];
     
     
     
@@ -61,7 +113,6 @@
     
     banner.rootViewController = self;
     
-    [self httpgetvideo:_id];
     
     if([[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]){
         return;
@@ -140,108 +191,15 @@
     
 }
 
-- (IBAction)playvideo:(id)sender {
-    
-    
-    [self videoPlayerPlay:videourl];
-    
-    
-}
-
-
--(void)httpgetvideo:(NSString *)_idlocal{
-    
-    //SVProgressHU网络请求
-    [SVProgressHUD showWithStatus:@""];
-    
-    NSString *requestUrl = [[HOST stringByAppendingString:_idlocal] stringByAppendingString:@"/jsonp/purejson/token/fd85daf8d89781733cf3f36a82b76fd1"];
-    
-    NSLog(@"requestUrl:%@",requestUrl);
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:requestUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        
-        [SVProgressHUD dismiss];
-        NSLog(@"JSON: %@", responseObject);
-        if ([responseObject isKindOfClass:[NSArray class]]) {
-            
-            NSArray *resp = responseObject;
-            
-            NSDictionary *forpicdic = [resp objectAtIndex:0];
-            if ([forpicdic objectForKey:@"img"]) {
-                
-                NSString *imageurl = [forpicdic objectForKey:@"img"];
-                
-                [FUtils setImage:imageurl withImageView:videobg withHeight:336 withWidth:448];
-                
-                
-            }
-            
-            NSDictionary *results = [resp objectAtIndex:resp.count-1];
-            NSArray *files = [results objectForKey:@"files"];
-            NSDictionary *video = [files objectAtIndex:0];
-            NSString *furl = [video objectForKey:@"furl"];
-            videourl = furl;
-            
-        }
-        
-        
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        [SVProgressHUD showErrorWithStatus:@"加载失败,请检查网络重新尝试"];
-    }];
-    
-    
-    
-}
-
-
-- (void)videoPlayerPlay:(NSString *)playurl {
-    moviePlayer = [[DirectionMPMoviePlayer alloc] initWithContentURL: [NSURL URLWithString:playurl]];
-    moviePlayer.view.frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
-    moviePlayer.moviePlayer.scalingMode = MPMovieScalingModeAspectFill;//全屏播放（全屏播放不可缺）
-    CGAffineTransform landscapeTransform = CGAffineTransformMakeRotation(M_PI / 2);
-    moviePlayer.view.transform = landscapeTransform;
-    NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
-    [ notificationCenter addObserver:self selector:@selector(movieFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:[moviePlayer moviePlayer] ];
-    [notificationCenter addObserver:self selector:@selector(playbackStateChanged) name:MPMoviePlayerPlaybackStateDidChangeNotification object:[moviePlayer moviePlayer]];
-    [self presentModalViewController:moviePlayer animated:YES];
-    [[moviePlayer moviePlayer] play];
-}
 
 
 
-- (void) playbackStateChanged {
-    
-    if ( [moviePlayer moviePlayer].playbackState == MPMoviePlaybackStatePaused) {
-        
-        
-    };
-    
-    
-    if ( [moviePlayer moviePlayer].playbackState == MPMoviePlaybackStatePlaying) {
-        
-    }
-    ;
-    
-    
-}
 
-
-
--(void)movieFinishedCallback:(NSNotification*)notification{
-    //添加你的处理代码
+-(NSString *) getDBPath
+{
     
-    if ([moviePlayer moviePlayer]) {
-        [ [moviePlayer moviePlayer] pause];
-        moviePlayer = nil;
-    }
-    
-    
+    NSString *tmpDir = NSTemporaryDirectory();
+    return [tmpDir stringByAppendingPathComponent:@"cartegory.db"];
     
 }
 

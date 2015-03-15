@@ -206,10 +206,11 @@
     
     
     VideoDetailViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoDetailViewController"];
-    videoVC._id = currentKnow._id;
-    videoVC.titlename = currentKnow.title;
+    videoVC.titleName = currentKnow.title;
     videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
+    
+    
     
     
 }
