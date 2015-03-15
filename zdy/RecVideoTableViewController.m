@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"怀孕知识";
+    
 #pragma mark - navigationBar_UI
     UIBarButtonItem *newBackButton =
     [[UIBarButtonItem alloc] initWithTitle:@"返回"
@@ -79,8 +81,16 @@
         // error
         return;
     }
-    FMResultSet *rs = [db executeQuery:[@"select * from " stringByAppendingString:@"zhoutable"]];
+    
+    NSString *queryStr =    [[NSString alloc] initWithFormat:@"select * FROM zhoutable where category = \"%@\"",self.title];
+    
+    FMResultSet *rs = [db executeQuery:queryStr];
+    
+    //NSLog(@"Select * FROM zhoutable Where category = \"%@\"",self.title);
+    
+    
     while ([rs next]) {
+
         
         VideoData *videoData = [VideoData new];
         
@@ -93,7 +103,6 @@
         
         [videoDatas addObject:videoData];
         
-        [rs next];
 
     }
     
@@ -243,6 +252,7 @@
     //NSLog(@"zhou: %@",currentVideo.zhou);
     videoVC.zhou = currentVideo.zhou;
     videoVC.category = currentVideo.category;
+    videoVC.dbFile = @"cartegory.db";
     videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
     

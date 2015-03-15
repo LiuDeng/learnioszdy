@@ -40,13 +40,14 @@
 
 @synthesize zhou;
 @synthesize category;
+@synthesize dbFile;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Create manager
-    
-    self.title = @"怀孕知识";
-    
+    NSLog(@"success");
+    self.title = self.category;
     
 #pragma mark - navigationBar_UI
     UIBarButtonItem *newBackButton =
@@ -70,12 +71,12 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     
-    NSString *dbpath = [self getDBPath];
+    NSString *dbpath = [self getDBPath:self.dbFile];
     BOOL success = [fileManager fileExistsAtPath:dbpath];
     
     if(!success) {
         
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cartegory.db"];
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.dbFile];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
         
         
@@ -158,11 +159,11 @@
     
 }
 
--(NSString *) getDBPath
+-(NSString *) getDBPath:(NSString *)dbfile
 {
     
     NSString *tmpDir = NSTemporaryDirectory();
-    return [tmpDir stringByAppendingPathComponent:@"cartegory.db"];
+    return [tmpDir stringByAppendingPathComponent:dbfile];
     
 }
 
@@ -187,12 +188,18 @@
     titleLabel.text = currentKnow.title;
     connectLabel.text = currentKnow.connect;
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
     KnowData *currentKnow = [knowDatas objectAtIndex:indexPath.row];
     
     
@@ -207,6 +214,7 @@
     
     VideoDetailViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoDetailViewController"];
     videoVC._id = currentKnow.weburl;
+    videoVC.dbFile = self.dbFile;
     videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
     
@@ -214,6 +222,8 @@
     
     
 }
+
+
 
 
 

@@ -12,5 +12,7 @@
 
 @property (nonatomic, strong) NSString *zhou;
 @property (nonatomic, strong) NSString *category;
+@property (nonatomic, strong) NSString *dbFile;
+
 
 @end

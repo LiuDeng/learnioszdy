@@ -31,10 +31,13 @@
 
 @property  GADBannerView *banner;
 
+
 @end
 
 @implementation VideoDetailViewController
 @synthesize _id;
+@synthesize dbFile;
+
 
 @synthesize banner;
 
@@ -50,12 +53,12 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     
-    NSString *dbpath = [self getDBPath];
+    NSString *dbpath = [self getDBPath:self.dbFile];
     BOOL success = [fileManager fileExistsAtPath:dbpath];
     
     if(!success) {
         
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cartegory.db"];
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.dbFile];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
         
         
@@ -199,11 +202,11 @@
 
 
 
--(NSString *) getDBPath
+-(NSString *) getDBPath:(NSString *)dbfile
 {
     
     NSString *tmpDir = NSTemporaryDirectory();
-    return [tmpDir stringByAppendingPathComponent:@"cartegory.db"];
+    return [tmpDir stringByAppendingPathComponent:dbfile];
     
 }
 
