@@ -85,6 +85,8 @@
     
     titleLabel.text = [rs stringForColumn:@"title"];
     
+    //titleLabel.textColor = [UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0];
+    
     NSLog(@"titleLabel.text:%@",titleLabel.text);
     
     //不明白baseURL传入的这个参数，html的资源在upload里
@@ -103,42 +105,42 @@
     
     
     
-//    if (!UIUserInterfaceIdiomPad == [UIDevice currentDevice].userInterfaceIdiom) {
-//        
-//        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
-//        
-//        
-//    }else{
-//        
-//        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeLeaderboard];
-//        
-//        
-//    }
-//   
-//    banner.adUnitID = GOOGLEADSBANNERKEY;
-//    
-//    
-//    banner.rootViewController = self;
-//    
-//    
-//    if([[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]){
-//        return;
-//    }
-//    
-//    
-//    if (APPDELEGATE.noads ) {
-//        return;
-//    }
-//  
-//    [self.view addSubview:banner];
-//    [banner setDelegate:self];
-//    GADRequest *request = [GADRequest request];
-//    [banner loadRequest:request];
-//    
-//    interstitial_ = [[GADInterstitial alloc] init];
-//    interstitial_.adUnitID = GOOGLEADSADPOSTERKEY;
-//    [interstitial_ loadRequest:[GADRequest request]];
-//    interstitial_.delegate = self;
+    if (!UIUserInterfaceIdiomPad == [UIDevice currentDevice].userInterfaceIdiom) {
+        
+        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
+        
+        
+    }else{
+        
+        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeLeaderboard];
+        
+        
+    }
+   
+    banner.adUnitID = GOOGLEADSBANNERKEY;
+    
+    
+    banner.rootViewController = self;
+    
+    
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]){
+        return;
+    }
+    
+    
+    if (APPDELEGATE.noads ) {
+        return;
+    }
+  
+    [self.view addSubview:banner];
+    [banner setDelegate:self];
+    GADRequest *request = [GADRequest request];
+    [banner loadRequest:request];
+    
+    interstitial_ = [[GADInterstitial alloc] init];
+    interstitial_.adUnitID = GOOGLEADSADPOSTERKEY;
+    [interstitial_ loadRequest:[GADRequest request]];
+    interstitial_.delegate = self;
 
 
 

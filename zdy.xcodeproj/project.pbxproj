@@ -369,6 +369,8 @@
 		D868D3B71AB57BB500CC45A8 /* yingyangshipu.png in Resources */ = {isa = PBXBuildFile; fileRef = D868D2741AB57BB500CC45A8 /* yingyangshipu.png */; };
 		D868D3B81AB57BB500CC45A8 /* zhunbabaketang.png in Resources */ = {isa = PBXBuildFile; fileRef = D868D2751AB57BB500CC45A8 /* zhunbabaketang.png */; };
 		D868D3BA1AB57CBF00CC45A8 /* 201208081412111516.png in Resources */ = {isa = PBXBuildFile; fileRef = D868D3B91AB57CBF00CC45A8 /* 201208081412111516.png */; };
+		D8941E8E1AB6679B0042288F /* btn_chose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8941E8C1AB6679B0042288F /* btn_chose@2x.png */; };
+		D8941E8F1AB6679B0042288F /* btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8941E8D1AB6679B0042288F /* btn@2x.png */; };
 		D8A10FA91A9AD29C00DB9070 /* FUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A10FA81A9AD29C00DB9070 /* FUtils.m */; };
 		D8A10FAC1A9AD2C500DB9070 /* UIImageView+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A10FAB1A9AD2C500DB9070 /* UIImageView+Circle.m */; };
 		D8A10FB01A9ADFB600DB9070 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A10FAF1A9ADFB600DB9070 /* libz.dylib */; };
@@ -782,6 +784,8 @@
 		D868D2741AB57BB500CC45A8 /* yingyangshipu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yingyangshipu.png; sourceTree = "<group>"; };
 		D868D2751AB57BB500CC45A8 /* zhunbabaketang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhunbabaketang.png; sourceTree = "<group>"; };
 		D868D3B91AB57CBF00CC45A8 /* 201208081412111516.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 201208081412111516.png; sourceTree = "<group>"; };
+		D8941E8C1AB6679B0042288F /* btn_chose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_chose@2x.png"; sourceTree = "<group>"; };
+		D8941E8D1AB6679B0042288F /* btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn@2x.png"; sourceTree = "<group>"; };
 		D8A10FA71A9AD29C00DB9070 /* FUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUtils.h; sourceTree = "<group>"; };
 		D8A10FA81A9AD29C00DB9070 /* FUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUtils.m; sourceTree = "<group>"; };
 		D8A10FAA1A9AD2C500DB9070 /* UIImageView+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Circle.h"; sourceTree = "<group>"; };
@@ -1257,6 +1261,15 @@
 			name = upload;
 			sourceTree = "<group>";
 		};
+		D8941E8B1AB667450042288F /* image */ = {
+			isa = PBXGroup;
+			children = (
+				D8941E8C1AB6679B0042288F /* btn_chose@2x.png */,
+				D8941E8D1AB6679B0042288F /* btn@2x.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		D8EEF6E31A98191000DEEC08 = {
 			isa = PBXGroup;
 			children = (
@@ -1280,6 +1293,7 @@
 		D8EEF6EE1A98191000DEEC08 /* zdy */ = {
 			isa = PBXGroup;
 			children = (
+				D8941E8B1AB667450042288F /* image */,
 				D868D1321AB575A600CC45A8 /* upload */,
 				D8A10FC91A9C511500DB9070 /* GoogleMobileAds.framework */,
 				D8A10FBD1A9AE53700DB9070 /* xingxing@2x.png */,
@@ -1527,6 +1541,7 @@
 				D868D2D91AB57BB500CC45A8 /* 201208091433331964.png in Resources */,
 				D868D38D1AB57BB500CC45A8 /* 201208141417192004.png in Resources */,
 				D868D34C1AB57BB500CC45A8 /* 201208101458324003.png in Resources */,
+				D8941E8F1AB6679B0042288F /* btn@2x.png in Resources */,
 				D868D2DD1AB57BB500CC45A8 /* 201208091509112443.png in Resources */,
 				D868D2841AB57BB500CC45A8 /* 15.png in Resources */,
 				D868D2BA1AB57BB500CC45A8 /* 201208081735171692.png in Resources */,
@@ -1674,6 +1689,7 @@
 				D868D3721AB57BB500CC45A8 /* 201208131105319329.png in Resources */,
 				D868D3531AB57BB500CC45A8 /* 201208101525048793.png in Resources */,
 				D868D2FE1AB57BB500CC45A8 /* 201208091725334753.png in Resources */,
+				D8941E8E1AB6679B0042288F /* btn_chose@2x.png in Resources */,
 				D868D28E1AB57BB500CC45A8 /* 25.png in Resources */,
 				D859E1891A9A136B00558761 /* btn_calendar@2x.png in Resources */,
 				D868D3271AB57BB500CC45A8 /* 201208101102413483.png in Resources */,

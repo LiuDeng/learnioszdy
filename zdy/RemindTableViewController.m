@@ -43,6 +43,16 @@
     self.title = @"关爱提醒";
     self.dbFile = @"cartegory2.db";
     
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *item = [tabBar.items objectAtIndex:3];
+    
+    UIImage *imageNormal = [UIImage imageNamed:@"btn"];
+    UIImage *imageSelected = [UIImage imageNamed:@"btn_chose"];
+    
+    item.selectedImage = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    item.image = [imageNormal imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBar.tintColor = [UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0];
+    
 #pragma mark - navigationBar_UI
     UIBarButtonItem *newBackButton =
     [[UIBarButtonItem alloc] initWithTitle:@"返回"

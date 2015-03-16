@@ -95,10 +95,15 @@
 
 -(void)initAppearence{
     
-    [[UINavigationBar appearance] setBackgroundImage:[self createImageWithColor:[UIColor colorWithRed:0.27 green:0.71 blue:0.36 alpha:1]] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[self createImageWithColor:[UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0]] forBarMetrics:UIBarMetricsDefault];
+    
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0]];
 
     
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.27 green:0.71 blue:0.36 alpha:1]];
+    
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     if (IOS8_OR_LATER) {
         
@@ -108,7 +113,7 @@
     
     
     
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     
     
 }

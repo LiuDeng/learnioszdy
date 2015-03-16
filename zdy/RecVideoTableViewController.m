@@ -38,6 +38,32 @@
     
     self.title = @"怀孕知识";
     
+//    UITabBar *tabBar = self.tabBarController.tabBar;
+//    UITabBarItem *item = [tabBar.items objectAtIndex:0];
+//    NSString *homePath = [[NSBundle mainBundle] pathForResource:@"btn_chose@2x" ofType:@"png"];
+    
+    
+    
+//    if(item.tag == 1)
+//    {
+//        item.selectedImage = [UIImage imageWithContentsOfFile:homePath];
+//    }
+    
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *item = [tabBar.items objectAtIndex:0];
+    
+    UIImage *imageNormal = [UIImage imageNamed:@"btn"];
+    UIImage *imageSelected = [UIImage imageNamed:@"btn_chose"];
+    
+        item.selectedImage = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.image = [imageNormal imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        tabBar.tintColor = [UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0];
+    
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    
+        
+    
+    
 #pragma mark - navigationBar_UI
     UIBarButtonItem *newBackButton =
     [[UIBarButtonItem alloc] initWithTitle:@"返回"
@@ -110,40 +136,7 @@
     
     
     
-//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"StudyList" ofType:@"plist"];
-//    NSArray *array = [[NSArray alloc] initWithContentsOfFile:plistPath];
-//    for (NSDictionary *dict in array) {
-//        
-//        
-//        VideoData *videoData = [VideoData new];
-//        videoData._id = [dict objectForKey:@"id"];
-//        videoData.title = [dict objectForKey:@"title"];
-//        videoData.image = [dict objectForKey:@"image"];
-//        videoData.time = [dict objectForKey:@"time"];
-//        videoData.desc = [dict objectForKey:@"desc"];
-//        
-//        [videoDatas addObject:videoData];
-//        
-//        
-//        
-//    }
-//    
-//    
-//    NSString *plistPaths = [[NSBundle mainBundle] pathForResource:@"MysteryList" ofType:@"plist"];
-//    NSArray *arrays = [[NSArray alloc] initWithContentsOfFile:plistPaths];
-//    for (NSDictionary *dict in arrays) {
-//        
-//        
-//        VideoData *videoData = [VideoData new];
-//        videoData._id = [dict objectForKey:@"url"];
-//        videoData.title = [dict objectForKey:@"title"];
-//        videoData.image = [dict objectForKey:@"image"];
-//        videoData.time = [@"难度" stringByAppendingString:[dict objectForKey:@"score"]];
-//        videoData.desc = [dict objectForKey:@"desc"];
-//        
-//        [videoDatas addObject:videoData];
 
-//    }
     
     
     
