@@ -85,7 +85,7 @@
     
     titleLabel.text = [rs stringForColumn:@"title"];
     
-    //titleLabel.textColor = [UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0];
+    //titleLabel.textColor = [UIColor colorWithRed:246.0/255.0 green:121.0/255.0 blue:147.0/255.0 alpha:1.0];
     
     NSLog(@"titleLabel.text:%@",titleLabel.text);
     

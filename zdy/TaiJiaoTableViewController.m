@@ -46,12 +46,12 @@
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item = [tabBar.items objectAtIndex:1];
     
-    UIImage *imageNormal = [UIImage imageNamed:@"btn"];
-    UIImage *imageSelected = [UIImage imageNamed:@"btn_chose"];
+    UIImage *imageNormal = [UIImage imageNamed:@"btn2"];
+    UIImage *imageSelected = [UIImage imageNamed:@"btn_chose2"];
     
     item.selectedImage = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     item.image = [imageNormal imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    tabBar.tintColor = [UIColor colorWithRed:250.0/255.0 green:193.0/255.0 blue:255.0/255.0 alpha:1.0];
+    tabBar.tintColor = [UIColor colorWithRed:246.0/255.0 green:121.0/255.0 blue:147.0/255.0 alpha:1.0];
     
 #pragma mark - navigationBar_UI
     UIBarButtonItem *newBackButton =
