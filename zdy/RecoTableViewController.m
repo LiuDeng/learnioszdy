@@ -49,7 +49,7 @@
 
 -(void)recommendSection{
     [SVProgressHUD showWithStatus:@"加载中...."];
-    AVQuery *query = [AVQuery queryWithClassName:@"Stock_RecApps"];
+    AVQuery *query = [AVQuery queryWithClassName:@"RecApps"];
     if (query) {
         NSArray *recApps =[query findObjects];
         if (!recApps) {

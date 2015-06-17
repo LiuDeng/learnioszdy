@@ -1,100 +1,42 @@
 //
-//  VideoDetailViewController.m
-//  zdy
+//  BooksDetailViewController.m
+//  Stock
 //
-//  Created by jackrex on 24/2/15.
+//  Created by JackRex on 5/23/15.
 //  Copyright (c) 2015 Dracarys. All rights reserved.
 //
 
-#import "VideoDetailViewController.h"
-#import "FMDatabase.h"
-#import <AFNetworking/AFNetworking.h>
+#import "BooksDetailViewController.h"
+#import <CoreData/CoreData.h>
+#import "SVProgressHUD.h"
 #import "AdMoGoInterstitial.h"
 #import "AdMoGoInterstitialDelegate.h"
 #import "AdMoGoInterstitialManager.h"
-#import <MobClick.h>
-#define HOST @"http://api.flvxz.com/site/youku/vid/"
-
-
-@interface VideoDetailViewController ()<AdMoGoDelegate,AdMoGoWebBrowserControllerUserDelegate,AdMoGoInterstitialDelegate,UIAlertViewDelegate>
-{
-    __weak IBOutlet UILabel *titleLabel;
-    __weak IBOutlet UIWebView *weburlWebview;
+@interface BooksDetailViewController ()<AdMoGoDelegate,AdMoGoWebBrowserControllerUserDelegate,AdMoGoInterstitialDelegate>{
+    NSString *loadString;
     AdMoGoInterstitial *interstitialIns;
     BOOL canshow;
-
 }
-
+@property (weak, nonatomic) IBOutlet UIWebView *booksDetailWebView;
+@property (retain, nonatomic) NSString *htmlStr;
 @end
 
-@implementation VideoDetailViewController
-@synthesize _id;
-@synthesize dbFile;
-
+@implementation BooksDetailViewController
+@synthesize content;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@"success");
-    self.title = @"详情内容";
-
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    
-    NSString *dbpath = [self getDBPath:self.dbFile];
-    BOOL success = [fileManager fileExistsAtPath:dbpath];
-    
-    if(!success) {
-        
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.dbFile];
-        success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
-
-    if (!success)
-            NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+    loadString = @"";
+    self.htmlStr = [[NSString alloc] initWithFormat:@"</div><br />%@<br />",content];
+    NSArray *arrays = [self.htmlStr componentsSeparatedByString:@"\n"];
+    for (NSString *str in arrays) {
+        NSString *htmlStr = [[@"<p>" stringByAppendingString:str] stringByAppendingString:@"</p>"];
+        loadString = [loadString stringByAppendingString:htmlStr];
     }
-    FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
-    if (![db open]) {
-        // error
-        return;
-    }
-    
-    NSString *queryStr =    [[NSString alloc] initWithFormat:@"select * FROM article where id = \"%@\"",_id];
-    
-    FMResultSet *rs = [db executeQuery:queryStr];
-    
-    //NSLog(@"Select content FROM article Where title = '%@'",titleName);
-        
-    [rs next];
-    
-    titleLabel.text = [rs stringForColumn:@"title"];
-    
-    //titleLabel.textColor = [UIColor colorWithRed:246.0/255.0 green:121.0/255.0 blue:147.0/255.0 alpha:1.0];
-    
-    NSLog(@"titleLabel.text:%@",titleLabel.text);
-    
-    //不明白baseURL传入的这个参数，html的资源在upload里
-    
-    NSString *htmlStr = [[rs stringForColumn:@"content"] stringByReplacingOccurrencesOfString:@"upload/" withString:@""];
+    [self.booksDetailWebView loadHTMLString:loadString baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
+    UIScrollView *tempView=(UIScrollView *)[self.booksDetailWebView.subviews objectAtIndex:0];
+    [tempView setShowsVerticalScrollIndicator:NO];
 
-    
-    [weburlWebview loadHTMLString:htmlStr baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
-        
-    
     [self loadAds];
-   
-    
-    [db close];
-    
-    
-    
-   
-    
-}
-
-#pragma mark - MobiSageAdViewDelegate 委托
-#pragma mark
-- (UIViewController *)viewControllerToPresent
-{
-    return self;
 }
 
 -(void)loadAds{
@@ -104,60 +46,43 @@
     [self addNotification];
 }
 
-
-
-
--(NSString *) getDBPath:(NSString *)dbfile
-{
-    NSString *tmpDir = NSTemporaryDirectory();
-    return [tmpDir stringByAppendingPathComponent:dbfile];
-}
-
-#pragma mark -
-#pragma mark AdMoGoWebBrowserControllerUserDelegate delegate
-
-/*
- 浏览器将要展示
- */
-- (void)webBrowserWillAppear{
-    NSLog(@"浏览器将要展示");
-}
-
-/*
- 浏览器已经展示
- */
-- (void)webBrowserDidAppear{
-    NSLog(@"浏览器已经展示");
-}
-
-/*
- 浏览器将要关闭
- */
-- (void)webBrowserWillClosed{
-    NSLog(@"浏览器将要关闭");
-}
-
-/*
- 浏览器已经关闭
- */
-- (void)webBrowserDidClosed{
-    NSLog(@"浏览器已经关闭");
-}
-/**
- *直接下载类广告 是否弹出Alert确认
- */
--(BOOL)shouldAlertQAView:(UIAlertView *)alertView{
+-(BOOL)hasSaved:(NSString *)name{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Create a new managed object
+    // 1. 实例化一个查询(Fetch)请求
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"List"];
+    
+    
+    
+    // 3. 条件查询，通过谓词来实现的
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"title = %@",name];
+    // 2. 让_context执行查询数据
+    
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    if (array.count) {
+        
+        return YES;
+    }
+    
     return NO;
-}
-
-- (void)webBrowserShare:(NSString *)url{
+    
     
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
 }
 
 #pragma mark -
@@ -314,6 +239,12 @@
 - (void)cancelShow{
     [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
 }
+#pragma mark - MobiSageAdViewDelegate 委托
+#pragma mark
+- (UIViewController *)viewControllerToPresent
+{
+    return self;
+}
 
 -(void)viewDidDisappear:(BOOL)animated{
     AdMoGoInterstitial *interstitial = [[AdMoGoInterstitialManager shareInstance] adMogoInterstitialByAppKey:MoGo_ID_IPhone];
@@ -324,6 +255,5 @@
 - (void)viewDidUnload{
     [self removeNotification];
 }
-
 
 @end

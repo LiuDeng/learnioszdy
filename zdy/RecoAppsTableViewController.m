@@ -78,11 +78,7 @@
         
         NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.dbFile];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
-        
-        
-        
-        
-        
+
         if (!success)
             NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
     }

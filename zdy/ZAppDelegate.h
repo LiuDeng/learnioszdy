@@ -24,7 +24,7 @@
 @property (nonatomic) BOOL noads;
 @property (nonatomic) BOOL isadposter;
 @property (nonatomic) BOOL israte;
-
+@property (nonatomic) BOOL isAll;
 
 @end
 

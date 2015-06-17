@@ -359,6 +359,10 @@
 		D8A10FC61A9C3CE900DB9070 /* VideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A10FC51A9C3CE800DB9070 /* VideoDetailViewController.m */; };
 		D8A10FCC1A9C512100DB9070 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A10FCB1A9C512100DB9070 /* AdSupport.framework */; };
 		D8A10FCF1A9C522800DB9070 /* RecoAppsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A10FCE1A9C522800DB9070 /* RecoAppsTableViewController.m */; };
+		D8B7C0F41B3145B7009BAE4B /* BooksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B7C0F31B3145B7009BAE4B /* BooksListTableViewController.m */; };
+		D8B7C0FA1B314F79009BAE4B /* BooksDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B7C0F91B314F79009BAE4B /* BooksDetailViewController.m */; };
+		D8B7C0FE1B315810009BAE4B /* tab2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B7C0FC1B315810009BAE4B /* tab2@2x.png */; };
+		D8B7C0FF1B315810009BAE4B /* tab4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B7C0FD1B315810009BAE4B /* tab4@2x.png */; };
 		D8BF32431B30F1F9008A4103 /* AdMoGoAdapterGoogleAdMobAds.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF31321B30F1F8008A4103 /* AdMoGoAdapterGoogleAdMobAds.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8BF32441B30F1F9008A4103 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF31341B30F1F8008A4103 /* AdMoGoAdapterGoogleAdMobFullAds.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8BF32451B30F1F9008A4103 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BF31351B30F1F8008A4103 /* GoogleMobileAds.framework */; };
@@ -521,6 +525,28 @@
 		D8BF32E91B30F65A008A4103 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BF32E81B30F65A008A4103 /* CoreImage.framework */; };
 		D8BF32EC1B30F71F008A4103 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF32EA1B30F71F008A4103 /* CustomTabBarViewController.m */; };
 		D8BF32EF1B30F9BF008A4103 /* RecoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF32EE1B30F9BF008A4103 /* RecoTableViewController.m */; };
+		D8BF33051B30FD66008A4103 /* backimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F01B30FD66008A4103 /* backimage.png */; };
+		D8BF33061B30FD66008A4103 /* beginimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F11B30FD66008A4103 /* beginimage.png */; };
+		D8BF33071B30FD66008A4103 /* bookdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F21B30FD66008A4103 /* bookdata.plist */; };
+		D8BF33081B30FD66008A4103 /* bookEight.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F31B30FD66008A4103 /* bookEight.png */; };
+		D8BF33091B30FD66008A4103 /* bookFive.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F41B30FD66008A4103 /* bookFive.png */; };
+		D8BF330A1B30FD66008A4103 /* bookFour.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F51B30FD66008A4103 /* bookFour.png */; };
+		D8BF330C1B30FD66008A4103 /* bookNight.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F71B30FD66008A4103 /* bookNight.png */; };
+		D8BF330D1B30FD66008A4103 /* bookOne.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F81B30FD66008A4103 /* bookOne.png */; };
+		D8BF330E1B30FD66008A4103 /* bookSeven.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32F91B30FD66008A4103 /* bookSeven.png */; };
+		D8BF330F1B30FD66008A4103 /* bookSix.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32FA1B30FD66008A4103 /* bookSix.png */; };
+		D8BF33101B30FD66008A4103 /* bookThree.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32FB1B30FD66008A4103 /* bookThree.png */; };
+		D8BF33111B30FD66008A4103 /* bookTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32FC1B30FD66008A4103 /* bookTwo.png */; };
+		D8BF33121B30FD66008A4103 /* cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32FD1B30FD66008A4103 /* cell_bg.png */; };
+		D8BF33131B30FD66008A4103 /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32FE1B30FD66008A4103 /* flash.png */; };
+		D8BF33141B30FD66008A4103 /* guodu.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF32FF1B30FD66008A4103 /* guodu.png */; };
+		D8BF33151B30FD66008A4103 /* imageName.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8BF33001B30FD66008A4103 /* imageName.plist */; };
+		D8BF33171B30FD66008A4103 /* two.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF33021B30FD66008A4103 /* two.png */; };
+		D8BF33181B30FD66008A4103 /* yuanjiao1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF33031B30FD66008A4103 /* yuanjiao1.png */; };
+		D8BF33191B30FD66008A4103 /* yuanjiao2.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BF33041B30FD66008A4103 /* yuanjiao2.png */; };
+		D8BF331C1B30FFBF008A4103 /* BooksCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF331B1B30FFBF008A4103 /* BooksCollectionViewController.m */; };
+		D8BF33221B310295008A4103 /* BooksEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF33211B310294008A4103 /* BooksEntity.m */; };
+		D8BF33251B310563008A4103 /* RecoData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BF33241B310563008A4103 /* RecoData.m */; };
 		D8EEF6F21A98191000DEEC08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EEF6F11A98191000DEEC08 /* main.m */; };
 		D8EEF6F51A98191000DEEC08 /* ZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EEF6F41A98191000DEEC08 /* ZAppDelegate.m */; };
 		D8EEF6F81A98191000DEEC08 /* zdy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8EEF6F61A98191000DEEC08 /* zdy.xcdatamodeld */; };
@@ -914,6 +940,12 @@
 		D8A10FCB1A9C512100DB9070 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D8A10FCD1A9C522800DB9070 /* RecoAppsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoAppsTableViewController.h; sourceTree = "<group>"; };
 		D8A10FCE1A9C522800DB9070 /* RecoAppsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoAppsTableViewController.m; sourceTree = "<group>"; };
+		D8B7C0F21B3145B7009BAE4B /* BooksListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksListTableViewController.h; sourceTree = "<group>"; };
+		D8B7C0F31B3145B7009BAE4B /* BooksListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksListTableViewController.m; sourceTree = "<group>"; };
+		D8B7C0F91B314F79009BAE4B /* BooksDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksDetailViewController.m; sourceTree = "<group>"; };
+		D8B7C0FB1B315187009BAE4B /* BooksDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksDetailViewController.h; sourceTree = "<group>"; };
+		D8B7C0FC1B315810009BAE4B /* tab2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab2@2x.png"; sourceTree = "<group>"; };
+		D8B7C0FD1B315810009BAE4B /* tab4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab4@2x.png"; sourceTree = "<group>"; };
 		D8BF31311B30F1F8008A4103 /* AdMoGoAdapterGoogleAdMobAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterGoogleAdMobAds.h; sourceTree = "<group>"; };
 		D8BF31321B30F1F8008A4103 /* AdMoGoAdapterGoogleAdMobAds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterGoogleAdMobAds.m; sourceTree = "<group>"; };
 		D8BF31331B30F1F8008A4103 /* AdMoGoAdapterGoogleAdMobFullAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterGoogleAdMobFullAds.h; sourceTree = "<group>"; };
@@ -1169,6 +1201,31 @@
 		D8BF32EB1B30F71F008A4103 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarViewController.h; sourceTree = "<group>"; };
 		D8BF32ED1B30F9BF008A4103 /* RecoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoTableViewController.h; sourceTree = "<group>"; };
 		D8BF32EE1B30F9BF008A4103 /* RecoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoTableViewController.m; sourceTree = "<group>"; };
+		D8BF32F01B30FD66008A4103 /* backimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backimage.png; sourceTree = "<group>"; };
+		D8BF32F11B30FD66008A4103 /* beginimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beginimage.png; sourceTree = "<group>"; };
+		D8BF32F21B30FD66008A4103 /* bookdata.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = bookdata.plist; sourceTree = "<group>"; };
+		D8BF32F31B30FD66008A4103 /* bookEight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookEight.png; sourceTree = "<group>"; };
+		D8BF32F41B30FD66008A4103 /* bookFive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookFive.png; sourceTree = "<group>"; };
+		D8BF32F51B30FD66008A4103 /* bookFour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookFour.png; sourceTree = "<group>"; };
+		D8BF32F71B30FD66008A4103 /* bookNight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookNight.png; sourceTree = "<group>"; };
+		D8BF32F81B30FD66008A4103 /* bookOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookOne.png; sourceTree = "<group>"; };
+		D8BF32F91B30FD66008A4103 /* bookSeven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookSeven.png; sourceTree = "<group>"; };
+		D8BF32FA1B30FD66008A4103 /* bookSix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookSix.png; sourceTree = "<group>"; };
+		D8BF32FB1B30FD66008A4103 /* bookThree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookThree.png; sourceTree = "<group>"; };
+		D8BF32FC1B30FD66008A4103 /* bookTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookTwo.png; sourceTree = "<group>"; };
+		D8BF32FD1B30FD66008A4103 /* cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_bg.png; sourceTree = "<group>"; };
+		D8BF32FE1B30FD66008A4103 /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flash.png; sourceTree = "<group>"; };
+		D8BF32FF1B30FD66008A4103 /* guodu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guodu.png; sourceTree = "<group>"; };
+		D8BF33001B30FD66008A4103 /* imageName.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = imageName.plist; sourceTree = "<group>"; };
+		D8BF33021B30FD66008A4103 /* two.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two.png; sourceTree = "<group>"; };
+		D8BF33031B30FD66008A4103 /* yuanjiao1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuanjiao1.png; sourceTree = "<group>"; };
+		D8BF33041B30FD66008A4103 /* yuanjiao2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuanjiao2.png; sourceTree = "<group>"; };
+		D8BF331A1B30FFBF008A4103 /* BooksCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksCollectionViewController.h; sourceTree = "<group>"; };
+		D8BF331B1B30FFBF008A4103 /* BooksCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksCollectionViewController.m; sourceTree = "<group>"; };
+		D8BF33201B310294008A4103 /* BooksEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksEntity.h; sourceTree = "<group>"; };
+		D8BF33211B310294008A4103 /* BooksEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksEntity.m; sourceTree = "<group>"; };
+		D8BF33231B310563008A4103 /* RecoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoData.h; sourceTree = "<group>"; };
+		D8BF33241B310563008A4103 /* RecoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoData.m; sourceTree = "<group>"; };
 		D8EEF6EC1A98191000DEEC08 /* zdy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zdy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8EEF6F01A98191000DEEC08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8EEF6F11A98191000DEEC08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2134,6 +2191,27 @@
 		D8EEF6EE1A98191000DEEC08 /* zdy */ = {
 			isa = PBXGroup;
 			children = (
+				D8BF33231B310563008A4103 /* RecoData.h */,
+				D8BF33241B310563008A4103 /* RecoData.m */,
+				D8BF32F01B30FD66008A4103 /* backimage.png */,
+				D8BF32F11B30FD66008A4103 /* beginimage.png */,
+				D8BF32F21B30FD66008A4103 /* bookdata.plist */,
+				D8BF32F31B30FD66008A4103 /* bookEight.png */,
+				D8BF32F41B30FD66008A4103 /* bookFive.png */,
+				D8BF32F51B30FD66008A4103 /* bookFour.png */,
+				D8BF32F71B30FD66008A4103 /* bookNight.png */,
+				D8BF32F81B30FD66008A4103 /* bookOne.png */,
+				D8BF32F91B30FD66008A4103 /* bookSeven.png */,
+				D8BF32FA1B30FD66008A4103 /* bookSix.png */,
+				D8BF32FB1B30FD66008A4103 /* bookThree.png */,
+				D8BF32FC1B30FD66008A4103 /* bookTwo.png */,
+				D8BF32FD1B30FD66008A4103 /* cell_bg.png */,
+				D8BF32FE1B30FD66008A4103 /* flash.png */,
+				D8BF32FF1B30FD66008A4103 /* guodu.png */,
+				D8BF33001B30FD66008A4103 /* imageName.plist */,
+				D8BF33021B30FD66008A4103 /* two.png */,
+				D8BF33031B30FD66008A4103 /* yuanjiao1.png */,
+				D8BF33041B30FD66008A4103 /* yuanjiao2.png */,
 				D8BF32DC1B30F340008A4103 /* fc8a655884fd4d829585fe3f6fe37b8f.config */,
 				D8BF312F1B30F1F8008A4103 /* AdMob_SDK_700 */,
 				D8BF31371B30F1F8008A4103 /* AdsMoGoRes */,
@@ -2145,6 +2223,7 @@
 				D868D1321AB575A600CC45A8 /* upload */,
 				D8A10FAD1A9AD2E800DB9070 /* FDefine.h */,
 				D8A10FAA1A9AD2C500DB9070 /* UIImageView+Circle.h */,
+				D8B7C0F91B314F79009BAE4B /* BooksDetailViewController.m */,
 				D8A10FAB1A9AD2C500DB9070 /* UIImageView+Circle.m */,
 				D8A10FA71A9AD29C00DB9070 /* FUtils.h */,
 				D8A10FA81A9AD29C00DB9070 /* FUtils.m */,
@@ -2174,6 +2253,12 @@
 				D868D12D1AB5716D00CC45A8 /* RemindTableViewController.m */,
 				D868D12F1AB5720200CC45A8 /* FatherTableViewController.h */,
 				D868D1301AB5720200CC45A8 /* FatherTableViewController.m */,
+				D8BF331A1B30FFBF008A4103 /* BooksCollectionViewController.h */,
+				D8BF331B1B30FFBF008A4103 /* BooksCollectionViewController.m */,
+				D8BF33201B310294008A4103 /* BooksEntity.h */,
+				D8BF33211B310294008A4103 /* BooksEntity.m */,
+				D8B7C0F21B3145B7009BAE4B /* BooksListTableViewController.h */,
+				D8B7C0F31B3145B7009BAE4B /* BooksListTableViewController.m */,
 			);
 			path = zdy;
 			sourceTree = "<group>";
@@ -2181,7 +2266,10 @@
 		D8EEF6EF1A98191000DEEC08 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8B7C0FC1B315810009BAE4B /* tab2@2x.png */,
+				D8B7C0FD1B315810009BAE4B /* tab4@2x.png */,
 				D8BF32ED1B30F9BF008A4103 /* RecoTableViewController.h */,
+				D8B7C0FB1B315187009BAE4B /* BooksDetailViewController.h */,
 				D8BF32EE1B30F9BF008A4103 /* RecoTableViewController.m */,
 				D8BF32EA1B30F71F008A4103 /* CustomTabBarViewController.m */,
 				D8BF32EB1B30F71F008A4103 /* CustomTabBarViewController.h */,
@@ -2261,7 +2349,7 @@
 				TargetAttributes = {
 					D8EEF6EB1A98191000DEEC08 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = HG2SE2YJ8W;
+						DevelopmentTeam = D596979T24;
 					};
 					D8EEF7071A98191000DEEC08 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -2297,6 +2385,7 @@
 				D868D3661AB57BB500CC45A8 /* 201208101622228346.png in Resources */,
 				D868D3171AB57BB500CC45A8 /* 201208101005532065.png in Resources */,
 				D8BF32901B30F1F9008A4103 /* webview_bar_close_hover@2x.png in Resources */,
+				D8BF33111B30FD66008A4103 /* bookTwo.png in Resources */,
 				D868D3541AB57BB500CC45A8 /* 201208101526219432.png in Resources */,
 				D8BF324B1B30F1F9008A4103 /* adchina_full_backgrand.png in Resources */,
 				D868D35D1AB57BB500CC45A8 /* 201208101555097533.png in Resources */,
@@ -2305,6 +2394,7 @@
 				D868D30D1AB57BB500CC45A8 /* 201208100918222665.PNG in Resources */,
 				D868D2A01AB57BB500CC45A8 /* 201208081158498836.png in Resources */,
 				D868D2971AB57BB500CC45A8 /* 34.png in Resources */,
+				D8BF330E1B30FD66008A4103 /* bookSeven.png in Resources */,
 				D868D3011AB57BB500CC45A8 /* 201208091729343505.png in Resources */,
 				D8BF32891B30F1F9008A4103 /* shareviewhead_bg@2x.png in Resources */,
 				D868D2961AB57BB500CC45A8 /* 33.png in Resources */,
@@ -2359,6 +2449,7 @@
 				D868D2F21AB57BB500CC45A8 /* 201208091643126622.png in Resources */,
 				D868D32B1AB57BB500CC45A8 /* 201208101135255282.png in Resources */,
 				D868D2B91AB57BB500CC45A8 /* 201208081732376536.png in Resources */,
+				D8BF33181B30FD66008A4103 /* yuanjiao1.png in Resources */,
 				D868D33B1AB57BB500CC45A8 /* 201208101320343291.png in Resources */,
 				D868D28F1AB57BB500CC45A8 /* 26.png in Resources */,
 				D868D2E71AB57BB500CC45A8 /* 201208091558171616.png in Resources */,
@@ -2384,6 +2475,7 @@
 				D868D3101AB57BB500CC45A8 /* 201208100926124270.png in Resources */,
 				D868D2E01AB57BB500CC45A8 /* 201208091541288874.png in Resources */,
 				D868D3081AB57BB500CC45A8 /* 201208091947464105.png in Resources */,
+				D8BF33091B30FD66008A4103 /* bookFive.png in Resources */,
 				D8BF326F1B30F1F9008A4103 /* adsmogo_picrollbg@2x.png in Resources */,
 				D868D3041AB57BB500CC45A8 /* 201208091752187062.png in Resources */,
 				D868D3791AB57BB500CC45A8 /* 201208131154052547.png in Resources */,
@@ -2430,6 +2522,7 @@
 				D868D2841AB57BB500CC45A8 /* 15.png in Resources */,
 				D8BF32721B30F1F9008A4103 /* adsmogo_bannerbg.png in Resources */,
 				D868D2BA1AB57BB500CC45A8 /* 201208081735171692.png in Resources */,
+				D8BF33051B30FD66008A4103 /* backimage.png in Resources */,
 				D8BF324F1B30F1F9008A4103 /* adsmogo_BG_750×90@2x.png in Resources */,
 				D868D36B1AB57BB500CC45A8 /* 201208101658257754.jpg in Resources */,
 				D868D3B01AB57BB500CC45A8 /* 201208141723288345.png in Resources */,
@@ -2441,6 +2534,7 @@
 				D8BF327B1B30F1F9008A4103 /* website-1242x169.gif in Resources */,
 				D868D30A1AB57BB500CC45A8 /* 201208091950202417.png in Resources */,
 				D868D29E1AB57BB500CC45A8 /* 201208061419291989.png in Resources */,
+				D8BF33191B30FD66008A4103 /* yuanjiao2.png in Resources */,
 				D868D3701AB57BB500CC45A8 /* 201208131101529494.png in Resources */,
 				D868D3111AB57BB500CC45A8 /* 201208100930153725.png in Resources */,
 				D8BF329E1B30F1F9008A4103 /* webview_bar_next_grey_ipad@2x.png in Resources */,
@@ -2459,9 +2553,11 @@
 				D868D2781AB57BB500CC45A8 /* 3.png in Resources */,
 				D868D3031AB57BB500CC45A8 /* 201208091750216308.png in Resources */,
 				D868D2B71AB57BB500CC45A8 /* 201208081717035699.png in Resources */,
+				D8BF33171B30FD66008A4103 /* two.png in Resources */,
 				D868D2F41AB57BB500CC45A8 /* 201208091654144817.png in Resources */,
 				D868D2881AB57BB500CC45A8 /* 19.png in Resources */,
 				D868D35C1AB57BB500CC45A8 /* 201208101552292254.png in Resources */,
+				D8BF330F1B30FD66008A4103 /* bookSix.png in Resources */,
 				D868D28C1AB57BB500CC45A8 /* 23.png in Resources */,
 				D868D2C31AB57BB500CC45A8 /* 201208091038469481.png in Resources */,
 				D868D31B1AB57BB500CC45A8 /* 201208101020434105.png in Resources */,
@@ -2488,8 +2584,10 @@
 				D868D2FA1AB57BB500CC45A8 /* 201208091705407627.png in Resources */,
 				D868D3141AB57BB500CC45A8 /* 201208100947524372.png in Resources */,
 				D868D2CC1AB57BB500CC45A8 /* 201208091337489080.png in Resources */,
+				D8BF330D1B30FD66008A4103 /* bookOne.png in Resources */,
 				D868D32C1AB57BB500CC45A8 /* 201208101136482861.png in Resources */,
 				D8BF32B11B30F1F9008A4103 /* shareviewfoot_bg.png in Resources */,
+				D8B7C0FF1B315810009BAE4B /* tab4@2x.png in Resources */,
 				D8BF32BC1B30F1F9008A4103 /* webview_bar_refresh.png in Resources */,
 				D868D37D1AB57BB500CC45A8 /* 201208131700369462.png in Resources */,
 				D8BF329F1B30F1F9008A4103 /* webview_bar_next_ipad@2x.png in Resources */,
@@ -2501,6 +2599,7 @@
 				D868D27B1AB57BB500CC45A8 /* 6.png in Resources */,
 				D8BF32611B30F1F9008A4103 /* adsmogo_fsclosebtn.png in Resources */,
 				D8BF32641B30F1F9008A4103 /* adsMoGoInterstitial.html in Resources */,
+				D8BF33061B30FD66008A4103 /* beginimage.png in Resources */,
 				D8BF32731B30F1F9008A4103 /* adsmogo_bannerface50.png in Resources */,
 				D868D3481AB57BB500CC45A8 /* 201208101442031424.png in Resources */,
 				D8BF32811B30F1F9008A4103 /* adsmogo_close.png in Resources */,
@@ -2509,11 +2608,14 @@
 				D8BF32581B30F1F9008A4103 /* adsmogo_mail_iphone@2x.png in Resources */,
 				D868D3781AB57BB500CC45A8 /* 201208131151449853.png in Resources */,
 				D868D2D41AB57BB500CC45A8 /* 201208091401286952.png in Resources */,
+				D8BF33101B30FD66008A4103 /* bookThree.png in Resources */,
 				D868D3731AB57BB500CC45A8 /* 201208131109027439.png in Resources */,
 				D868D34E1AB57BB500CC45A8 /* 201208101500395926.png in Resources */,
 				D868D2E11AB57BB500CC45A8 /* 201208091547216173.png in Resources */,
 				D8BF32A61B30F1F9008A4103 /* webview_bar_close_hover_ipad.png in Resources */,
 				D8BF32991B30F1F9008A4103 /* bg_ipad@2x.png in Resources */,
+				D8BF33121B30FD66008A4103 /* cell_bg.png in Resources */,
+				D8BF33071B30FD66008A4103 /* bookdata.plist in Resources */,
 				D868D3441AB57BB500CC45A8 /* 201208101427204631.png in Resources */,
 				D8BF32B31B30F1F9008A4103 /* shareviewhead_icon.png in Resources */,
 				D8BF32AD1B30F1F9008A4103 /* bg.png in Resources */,
@@ -2564,6 +2666,7 @@
 				D8BF329B1B30F1F9008A4103 /* webview_bar_back_ipad@2x.png in Resources */,
 				D868D2831AB57BB500CC45A8 /* 14.png in Resources */,
 				D868D3511AB57BB500CC45A8 /* 201208101509224040.png in Resources */,
+				D8BF33151B30FD66008A4103 /* imageName.plist in Resources */,
 				D8BF32481B30F1F9008A4103 /* adchina_btnconfirm2.png in Resources */,
 				D868D34F1AB57BB500CC45A8 /* 201208101501138571.png in Resources */,
 				D868D2A41AB57BB500CC45A8 /* 201208081333423686.png in Resources */,
@@ -2576,6 +2679,7 @@
 				D8BF328F1B30F1F9008A4103 /* webview_bar_close@2x.png in Resources */,
 				D868D3B51AB57BB500CC45A8 /* guanAiTiXing.png in Resources */,
 				D868D3311AB57BB500CC45A8 /* 201208101204158632.png in Resources */,
+				D8B7C0FE1B315810009BAE4B /* tab2@2x.png in Resources */,
 				D868D2951AB57BB500CC45A8 /* 32.png in Resources */,
 				D868D3A61AB57BB500CC45A8 /* 201208141648171339.png in Resources */,
 				D8BF32681B30F1F9008A4103 /* adsmogo_adclose@3x.png in Resources */,
@@ -2584,6 +2688,7 @@
 				D868D2821AB57BB500CC45A8 /* 13.png in Resources */,
 				D868D3AF1AB57BB500CC45A8 /* 201208141713135215.png in Resources */,
 				D868D2991AB57BB500CC45A8 /* 36.png in Resources */,
+				D8BF33081B30FD66008A4103 /* bookEight.png in Resources */,
 				D868D3621AB57BB500CC45A8 /* 201208101601561330.png in Resources */,
 				D8BF32571B30F1F9008A4103 /* adsmogo_button_shut-down_default@2x.png in Resources */,
 				D8EEF6FE1A98191000DEEC08 /* Main.storyboard in Resources */,
@@ -2617,6 +2722,7 @@
 				D868D2FE1AB57BB500CC45A8 /* 201208091725334753.png in Resources */,
 				D868D28E1AB57BB500CC45A8 /* 25.png in Resources */,
 				D868D3271AB57BB500CC45A8 /* 201208101102413483.png in Resources */,
+				D8BF33131B30FD66008A4103 /* flash.png in Resources */,
 				D868D3221AB57BB500CC45A8 /* 201208101056009914.png in Resources */,
 				D868D39B1AB57BB500CC45A8 /* 201208141545034324.png in Resources */,
 				D868D30F1AB57BB500CC45A8 /* 201208100922299787.png in Resources */,
@@ -2690,6 +2796,7 @@
 				D868D29C1AB57BB500CC45A8 /* 39.png in Resources */,
 				D806EE781AB815710006BAA6 /* btn2@2x.png in Resources */,
 				D868D36E1AB57BB500CC45A8 /* 201208131057555382.png in Resources */,
+				D8BF330A1B30FD66008A4103 /* bookFour.png in Resources */,
 				D868D38C1AB57BB500CC45A8 /* 201208141415083296.png in Resources */,
 				D868D2F91AB57BB500CC45A8 /* 201208091703505104.png in Resources */,
 				D868D36A1AB57BB500CC45A8 /* 201208101637507616.png in Resources */,
@@ -2699,6 +2806,7 @@
 				D868D2AD1AB57BB500CC45A8 /* 201208081413288227.png in Resources */,
 				D868D3A01AB57BB500CC45A8 /* 201208141617401197.png in Resources */,
 				D868D2E61AB57BB500CC45A8 /* 201208091554036296.png in Resources */,
+				D8BF330C1B30FD66008A4103 /* bookNight.png in Resources */,
 				D868D2B21AB57BB500CC45A8 /* 201208081551539041.png in Resources */,
 				D8BF327F1B30F1F9008A4103 /* website-728x90.gif in Resources */,
 				D868D3871AB57BB500CC45A8 /* 201208141155458976.png in Resources */,
@@ -2726,6 +2834,7 @@
 				D868D2A61AB57BB500CC45A8 /* 201208081353043995.png in Resources */,
 				D8BF32A91B30F1F9008A4103 /* webview_bar_next_ipad.png in Resources */,
 				D8BF32B71B30F1F9008A4103 /* webview_bar_close.png in Resources */,
+				D8BF33141B30FD66008A4103 /* guodu.png in Resources */,
 				D868D2ED1AB57BB500CC45A8 /* 201208091622431440.png in Resources */,
 				D868D2931AB57BB500CC45A8 /* 30.png in Resources */,
 				D868D37C1AB57BB500CC45A8 /* 201208131557052421.png in Resources */,
@@ -2800,6 +2909,7 @@
 				D8A10FAC1A9AD2C500DB9070 /* UIImageView+Circle.m in Sources */,
 				D8BF32C21B30F1F9008A4103 /* AdMoGoAdapterBaiduFullAds.m in Sources */,
 				D8A10FA91A9AD29C00DB9070 /* FUtils.m in Sources */,
+				D8BF331C1B30FFBF008A4103 /* BooksCollectionViewController.m in Sources */,
 				D859E1931A9A15A200558761 /* RecVideoTableViewController.m in Sources */,
 				D8BF32D11B30F1F9008A4103 /* CJSONScanner.m in Sources */,
 				D8BF32441B30F1F9008A4103 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */,
@@ -2820,10 +2930,13 @@
 				D8BF32C71B30F1F9008A4103 /* mongoose.c in Sources */,
 				D8BF32D01B30F1F9008A4103 /* CJSONDeserializer.m in Sources */,
 				D8BF32CF1B30F1F9008A4103 /* NSDictionary_JSONExtensions.m in Sources */,
+				D8B7C0FA1B314F79009BAE4B /* BooksDetailViewController.m in Sources */,
 				D8A10FCF1A9C522800DB9070 /* RecoAppsTableViewController.m in Sources */,
 				D868D12E1AB5716D00CC45A8 /* RemindTableViewController.m in Sources */,
+				D8BF33251B310563008A4103 /* RecoData.m in Sources */,
 				D8BF32D31B30F1F9008A4103 /* ioapi.c in Sources */,
 				D8BF32431B30F1F9008A4103 /* AdMoGoAdapterGoogleAdMobAds.m in Sources */,
+				D8B7C0F41B3145B7009BAE4B /* BooksListTableViewController.m in Sources */,
 				D8BF32CE1B30F1F9008A4103 /* CDataScanner_Extensions.m in Sources */,
 				D8BF32C31B30F1F9008A4103 /* AdMoGoAdapterBaiduMobAd.m in Sources */,
 				D80132301AB440F80053D3E1 /* KnowData.m in Sources */,
@@ -2834,6 +2947,7 @@
 				D8A10FC11A9C2A9100DB9070 /* DirectionMPMoviePlayer.m in Sources */,
 				D80131D71AB2930F0053D3E1 /* FMResultSet.m in Sources */,
 				D80131D51AB2930F0053D3E1 /* FMDatabasePool.m in Sources */,
+				D8BF33221B310295008A4103 /* BooksEntity.m in Sources */,
 				D8BF32C81B30F1F9008A4103 /* OpenUDID.m in Sources */,
 				D868D1311AB5720200CC45A8 /* FatherTableViewController.m in Sources */,
 				D8A10FC61A9C3CE900DB9070 /* VideoDetailViewController.m in Sources */,
@@ -2962,7 +3076,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Panpeng Xie (28RZ43YUS7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhang Li (D596979T24)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zdy",
@@ -2980,7 +3095,7 @@
 					"$(PROJECT_DIR)/zdy/GDTMob_SDK_330_New/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "e3ff8acc-4057-4405-a30b-7b2a8a4f7d63";
 			};
 			name = Debug;
 		};
@@ -2991,6 +3106,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhang Li (D596979T24)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zdy",
@@ -3008,7 +3124,7 @@
 					"$(PROJECT_DIR)/zdy/GDTMob_SDK_330_New/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "e3ff8acc-4057-4405-a30b-7b2a8a4f7d63";
 			};
 			name = Release;
 		};

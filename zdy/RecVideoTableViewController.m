@@ -10,7 +10,9 @@
 #import "VideoData.h"
 #import <AFNetworking.h>   
 #import "FMDatabase.h"
+#import "RecoTableViewController.h"
 #import "RecoAppsTableViewController.h"
+#import "BooksCollectionViewController.h"
 #import <MobClick.h>
 
 
@@ -28,26 +30,39 @@
     NSString *upUrl;
     NSString *shouldUp;
 
+    IBOutlet UIBarButtonItem *leftItem;
+    IBOutlet UIBarButtonItem *rightItem;
 }
 @end
 
 @implementation RecVideoTableViewController
+
+
+
+- (IBAction)leftClick:(id)sender {
+    RecoTableViewController *RecoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RecoTableViewController"];
+    [self.navigationController pushViewController:RecoVC animated:YES];
+    
+}
+
+- (IBAction)rightClick:(id)sender {
+    BooksCollectionViewController *BooksVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BooksCollectionViewController"];
+    [self.navigationController pushViewController:BooksVC animated:YES];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"怀孕知识";
     
-//    UITabBar *tabBar = self.tabBarController.tabBar;
-//    UITabBarItem *item = [tabBar.items objectAtIndex:0];
-//    NSString *homePath = [[NSBundle mainBundle] pathForResource:@"btn_chose@2x" ofType:@"png"];
-    
-    
-    
-//    if(item.tag == 1)
-//    {
-//        item.selectedImage = [UIImage imageWithContentsOfFile:homePath];
-//    }
+    if (APPDELEGATE.isAll) {
+        
+    }else{
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item = [tabBar.items objectAtIndex:0];
@@ -58,11 +73,7 @@
         item.selectedImage = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.image = [imageNormal imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         tabBar.tintColor = [UIColor colorWithRed:246.0/255.0 green:121.0/255.0 blue:147.0/255.0 alpha:1.0];
-    
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:246.0/255.0 green:121.0/255.0 blue:147.0/255.0 alpha:1.0]];
-    
-        
-    
+
     
 #pragma mark - navigationBar_UI
     UIBarButtonItem *newBackButton =

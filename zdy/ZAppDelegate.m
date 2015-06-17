@@ -20,29 +20,71 @@
 @synthesize isadposter;
 @synthesize noads;
 @synthesize israte;
-
+@synthesize isAll;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
     [self initAppearence];
-    [self initAVOS:launchOptions];
+       if (IOS8_OR_LATER) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    if (IOS8_OR_LATER) {
+        [[UITabBar appearance] setTranslucent:NO];
+    }
+    [AVOSCloud setApplicationId:@"by3cbc2crmwdiq3vg3gslc84mvn1ovl8podys6ully6ralk5" clientKey:@"4c643g45lk360zz7j8ya8u69vvyqeg4y207f0hve6vetlptr"];
+    //第一次初始化打开提醒
+    NSString *firstInit = [USERDEFAULTS valueForKey:@"firstinit"];
+    if (!firstInit) {
+        [USERDEFAULTS setValue:@"yes" forKey:@"firstinit"];
+        [USERDEFAULTS setBool:YES forKey:SHOULDREMIND];
+        [USERDEFAULTS synchronize];
+    }
+    [self notification];
+    application.applicationIconBadgeNumber = 0;
     [self initUmeng];
-    
-    
+
     return YES;
 }
 
 
--(void)initAVOS:(NSDictionary *)launchOptions{
+-(void)notification{
     
-    //如果使用美国站点，请加上这行代码 [AVOSCloud useAVCloudUS];
-    [AVOSCloud setApplicationId:@"d6x9bufsokutgsfhizy33qo2fzedmzaoanozw1vscjyzg2ar"
-                      clientKey:@"npeodupjvfu7eefj5doo3wyv543lgbqgmvk87ykxkofb3w4z"];
-    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    
+    if ([USERDEFAULTS boolForKey:SHOULDREMIND]) {
+        
+        NSDate *remindtime = [USERDEFAULTS valueForKey:REMINDTIME];
+        if (!remindtime) {
+            NSDateFormatter *format = [[NSDateFormatter alloc]init];
+            [format setDateFormat:@"hh:mm"];
+            remindtime = [format dateFromString:@"19:40"];
+        }
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc]init];
+        [format setDateFormat:@"hh:mm"];
+        UILocalNotification * theNotification = [[UILocalNotification alloc] init];
+        [theNotification setTimeZone:[NSTimeZone defaultTimeZone]];
+        [theNotification setHasAction:YES];
+        
+        if ([USERDEFAULTS valueForKey:REMINDTEXT]) {
+            
+            theNotification.alertBody = [USERDEFAULTS valueForKey:REMINDTEXT];
+        }else{
+            theNotification.alertBody = [NSString stringWithFormat:@"每天一读孕期宝贝，让孕期妈妈和孩子健康快乐成长"];
+        }
+        theNotification.fireDate = remindtime;
+        theNotification.alertAction = @"Ok";
+        theNotification.soundName = UILocalNotificationDefaultSoundName;
+        theNotification.repeatInterval = NSDayCalendarUnit;
+        theNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
+        [[UIApplication sharedApplication] scheduleLocalNotification:theNotification];
+        
+        
+    }
     
 }
+
 
 -(void)initUmeng{
     
@@ -76,6 +118,9 @@
         }
         if ([[json objectForKey:@"noads"] isEqualToString:@"yes"]) {
             noads = YES;
+        }
+        if ([[json objectForKey:@"isall"] isEqualToString:@"yes"]) {
+            isAll = YES;
         }
     }
     
