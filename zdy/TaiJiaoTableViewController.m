@@ -19,10 +19,9 @@
 {
     
     NSMutableArray *videoDatas;
-    
     UIAlertView *alertDialog;
     UIAlertView *showUpdateDialog;
-    
+
     NSString *upTitle;
     NSString *upT;
     NSString *upUrl;
@@ -123,44 +122,7 @@
     
     [db close];
     
-    
-    
-    //    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"StudyList" ofType:@"plist"];
-    //    NSArray *array = [[NSArray alloc] initWithContentsOfFile:plistPath];
-    //    for (NSDictionary *dict in array) {
-    //
-    //
-    //        VideoData *videoData = [VideoData new];
-    //        videoData._id = [dict objectForKey:@"id"];
-    //        videoData.title = [dict objectForKey:@"title"];
-    //        videoData.image = [dict objectForKey:@"image"];
-    //        videoData.time = [dict objectForKey:@"time"];
-    //        videoData.desc = [dict objectForKey:@"desc"];
-    //
-    //        [videoDatas addObject:videoData];
-    //
-    //
-    //
-    //    }
-    //
-    //
-    //    NSString *plistPaths = [[NSBundle mainBundle] pathForResource:@"MysteryList" ofType:@"plist"];
-    //    NSArray *arrays = [[NSArray alloc] initWithContentsOfFile:plistPaths];
-    //    for (NSDictionary *dict in arrays) {
-    //
-    //
-    //        VideoData *videoData = [VideoData new];
-    //        videoData._id = [dict objectForKey:@"url"];
-    //        videoData.title = [dict objectForKey:@"title"];
-    //        videoData.image = [dict objectForKey:@"image"];
-    //        videoData.time = [@"难度" stringByAppendingString:[dict objectForKey:@"score"]];
-    //        videoData.desc = [dict objectForKey:@"desc"];
-    //
-    //        [videoDatas addObject:videoData];
-    
-    //    }
-    
-    
+
     
     [MobClick updateOnlineConfig];
     upTitle = [MobClick getConfigParams:@"uptitle"];
@@ -192,7 +154,7 @@
     
     [MobClick updateOnlineConfig];
     
-    alertDialog   = [[UIAlertView alloc]initWithTitle:@"五星好评去广告开启更多功能" message:@"姐妹们给五星好评支持下我们，我们将为您去除广告（五星评价有效，重启后生效)，解锁更多功能，谢谢各位" delegate:self cancelButtonTitle:@"残忍拒绝" otherButtonTitles:@"欣然前往",nil];
+    alertDialog   = [[UIAlertView alloc]initWithTitle:@"五星好评去广告开启更多功能" message:@"亲开发MM开发软件不容易，姐妹们给五星好评支持下我们，我们将为您去除广告（五星评价有效，重启后生效)，解锁更多功能，谢谢各位" delegate:self cancelButtonTitle:@"残忍拒绝" otherButtonTitles:@"欣然前往",nil];
     alertDialog.delegate = self;
     
     
@@ -271,7 +233,6 @@
     videoVC.zhou = currentVideo.zhou;
     videoVC.category = currentVideo.category;
     videoVC.dbFile = self.dbFile;
-    videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
     
     
@@ -308,10 +269,7 @@
             default:
                 break;
         }
-        
-        
         return;
-        
     }
     
     
@@ -327,16 +285,10 @@
                 
                 break;
         }
-        
-        
-        
-        
+
         return;
     }
-    
-    
-    
-    
+
 }
 
 

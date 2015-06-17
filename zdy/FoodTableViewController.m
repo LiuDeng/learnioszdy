@@ -271,7 +271,6 @@
     videoVC.zhou = currentVideo.zhou;
     videoVC.category = currentVideo.category;
     videoVC.dbFile = self.dbFile;
-    videoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:videoVC animated:YES];
     
     

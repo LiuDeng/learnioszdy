@@ -46,7 +46,7 @@
 
 -(void)initUmeng{
     
-    
+
     //Umeng
     [MobClick startWithAppkey:UM_Key];
     [MobClick checkUpdate];
@@ -62,30 +62,21 @@
     [Appirater appLaunched:YES];
     
     
-    [MobClick updateOnlineConfig];
-     NSString *para =  [MobClick getConfigParams:@"adcontrol"];
+    AVQuery *query = [AVQuery queryWithClassName:@"adcontrol"];
+    AVObject *gameScore = [query getObjectWithId:@"5580bf56e4b0a83febeaadd0"];
+    NSString *para = [gameScore valueForKey:@"adcontrol"];
     if (para) {
-        
         NSData *data = [para dataUsingEncoding:NSUTF8StringEncoding];
         id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
         if ([[json objectForKey:@"adposter"] isEqualToString:@"yes"]) {
-            
             isadposter = YES;
         }
-        
         if ([[json objectForKey:@"rate"] isEqualToString:@"yes"]) {
-            
             israte = YES;
         }
-        
         if ([[json objectForKey:@"noads"] isEqualToString:@"yes"]) {
-            
             noads = YES;
         }
-        
-
-        
     }
     
     

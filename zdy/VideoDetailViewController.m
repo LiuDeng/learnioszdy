@@ -9,28 +9,21 @@
 #import "VideoDetailViewController.h"
 #import "FMDatabase.h"
 #import <AFNetworking/AFNetworking.h>
-@import GoogleMobileAds;
+#import "AdMoGoInterstitial.h"
+#import "AdMoGoInterstitialDelegate.h"
+#import "AdMoGoInterstitialManager.h"
 #import <MobClick.h>
 #define HOST @"http://api.flvxz.com/site/youku/vid/"
 
 
-@interface VideoDetailViewController ()<GADBannerViewDelegate,GADInterstitialDelegate>
+@interface VideoDetailViewController ()<AdMoGoDelegate,AdMoGoWebBrowserControllerUserDelegate,AdMoGoInterstitialDelegate,UIAlertViewDelegate>
 {
-    
-    
     __weak IBOutlet UILabel *titleLabel;
-    
-    
     __weak IBOutlet UIWebView *weburlWebview;
-    
-    
-    GADInterstitial *interstitial_;
-
+    AdMoGoInterstitial *interstitialIns;
+    BOOL canshow;
 
 }
-
-@property  GADBannerView *banner;
-
 
 @end
 
@@ -38,18 +31,12 @@
 @synthesize _id;
 @synthesize dbFile;
 
-
-@synthesize banner;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"success");
     self.title = @"详情内容";
-    
-    
-    
-    
+
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     
@@ -60,13 +47,8 @@
         
         NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.dbFile];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbpath error:&error];
-        
-        
-        
-        
-        
-        
-        if (!success)
+
+    if (!success)
             NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
     }
     FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
@@ -97,53 +79,14 @@
     [weburlWebview loadHTMLString:htmlStr baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
         
     
-        
+    [self loadAds];
    
     
     [db close];
     
     
     
-    
-    if (!UIUserInterfaceIdiomPad == [UIDevice currentDevice].userInterfaceIdiom) {
-        
-        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
-        
-        
-    }else{
-        
-        banner = [[GADBannerView alloc]initWithAdSize:kGADAdSizeLeaderboard];
-        
-        
-    }
    
-    banner.adUnitID = GOOGLEADSBANNERKEY;
-    
-    
-    banner.rootViewController = self;
-    
-    
-    if([[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]){
-        return;
-    }
-    
-    
-    if (APPDELEGATE.noads ) {
-        return;
-    }
-  
-    [self.view addSubview:banner];
-    [banner setDelegate:self];
-    GADRequest *request = [GADRequest request];
-    [banner loadRequest:request];
-    
-    interstitial_ = [[GADInterstitial alloc] init];
-    interstitial_.adUnitID = GOOGLEADSADPOSTERKEY;
-    [interstitial_ loadRequest:[GADRequest request]];
-    interstitial_.delegate = self;
-
-
-
     
 }
 
@@ -154,52 +97,12 @@
     return self;
 }
 
-
-
-- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
-    [UIView beginAnimations:@"BannerSlide" context:nil];
-    
-    
-    
-    
-    
-    bannerView.frame = CGRectMake((SCREENWIDTH - bannerView.frame.size.width)/2,
-                                  0,
-                                  bannerView.frame.size.width,
-                                  bannerView.frame.size.height);
-    
-
-    [UIView commitAnimations];
+-(void)loadAds{
+    interstitialIns = [[AdMoGoInterstitialManager shareInstance] adMogoInterstitialByAppKey: MoGo_ID_IPhone isManualRefresh:YES];
+    interstitialIns.delegate = self;
+    canshow = YES;
+    [self addNotification];
 }
-
-
--(void)interstitialDidReceiveAd:(GADInterstitial *)ad{
-    
-    
-   
-    
-    if (APPDELEGATE.isadposter && ![[NSUserDefaults standardUserDefaults] valueForKey:@"areAdsRemoved"]) {
-        
-        [interstitial_ presentFromRootViewController:self];
-        
-        return;
-        
-    }
-    
-    
-    
-    
-    
-}
-
-
--(void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error{
-    
-    
-    NSLog(@"adView:didFailToReceiveAdWithError:%@", [error localizedDescription]);
-    
-}
-
 
 
 
@@ -226,6 +129,217 @@
 }
 
 
+#pragma mark -
+#pragma mark AdMoGoWebBrowserControllerUserDelegate delegate
+
+/*
+ 浏览器将要展示
+ */
+- (void)webBrowserWillAppear{
+    NSLog(@"浏览器将要展示");
+}
+
+/*
+ 浏览器已经展示
+ */
+- (void)webBrowserDidAppear{
+    NSLog(@"浏览器已经展示");
+}
+
+/*
+ 浏览器将要关闭
+ */
+- (void)webBrowserWillClosed{
+    NSLog(@"浏览器将要关闭");
+}
+
+/*
+ 浏览器已经关闭
+ */
+- (void)webBrowserDidClosed{
+    NSLog(@"浏览器已经关闭");
+}
+/**
+ *直接下载类广告 是否弹出Alert确认
+ */
+-(BOOL)shouldAlertQAView:(UIAlertView *)alertView{
+    return NO;
+}
+
+- (void)webBrowserShare:(NSString *)url{
+    
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark AdMoGoDelegate delegate
+/*
+ 返回广告rootViewController
+ */
+- (UIViewController *)viewControllerForPresentingModalView{
+    return self;
+}
+
+-(NSUInteger)supportedInterfaceOrientations{
+    
+    return UIInterfaceOrientationPortrait|UIInterfaceOrientationLandscapeRight;
+}
+
+-(BOOL)shouldAutorotate{
+    
+    return YES;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+/*
+ 全屏广告消失
+ */
+- (void)adsMoGoInterstitialAdDidDismiss{
+    
+    NSLog(@"dismiss interstitial");
+    
+    
+}
+
+- (UIViewController *)viewControllerForPresentingInterstitialModalView{
+    return self;
+}
+
+- (BOOL)adsMogoInterstitialAdDidExpireAd{
+    return YES;
+}
+
+
+-(void)showInterstitial{
+    
+    NSLog(@"show interstitial");
+    
+    if (APPDELEGATE.isadposter) {
+        
+        [[AdMoGoInterstitialManager shareInstance] interstitialShow:YES];
+        
+    }
+    
+    
+}
+
+
+-(void)adsMoGoInterstitialAdWillPresent{
+    
+    NSLog(@"will present");
+    
+}
+
+
+- (void)addNotification{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(statusDidChange:) name:@"AdMoGoInterstitialStatusChangeNotification"
+                                               object:nil];
+    
+}
+
+- (void)removeNotification{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
+
+- (void)statusDidChange:(NSNotification *)notification{
+    
+    NSLog(@"state change");
+    
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *appKey = [userInfo objectForKey:@"appKey"];
+    
+    
+    NSString *text = [self titleByStatusCode:[[userInfo objectForKey:@"status"] intValue]];
+    
+    NSLog(text);
+    
+}
+
+#pragma mark -
+#pragma mark AdMoGoInterstitialDelegate method
+
+- (void)adMoGoInterstitialInitFinish{
+    NSLog(@" inter init finished");
+}
+
+- (void)adMoGoInterstitialInMaualfreshAllAdsFail{
+    //    [self freshadBtnAction:nil];
+    NSLog(@" inter load failed");
+}
+
+- (NSString *)titleByStatusCode:(int)scode{
+    NSString *title = @"未知";
+    switch (scode) {
+        case 0:
+            title = @"轮换中";
+            break;
+        case 1:
+            title = @"等展示";
+            if(canshow){
+                
+                canshow = false;
+                
+                if (!APPDELEGATE.noads) {
+                    
+                    
+                    if (APPDELEGATE.isadposter) {
+                        [interstitialIns interstitialShow:YES];
+                        
+                    }
+                }
+                
+            }
+            break;
+        case 2:
+            title = @"展示中";
+            break;
+        case 3:
+            title = @"等重启";
+            break;
+        case 4:
+            title = @"已过期";
+            break;
+        case 5:
+            title = @"已销毁";
+            break;
+        default:
+            break;
+    }
+    
+    return title;
+    
+}
+
+/** 
+ *退出展示时机   *如果您之前进入了展示时机,并且isWait参数设置为YES,那么在需要取消等 待广告展示的 
+ *时候调用方法-  (void)interstitialCancel;来通知SDK 
+ */
+- (void)cancelShow{
+    [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    AdMoGoInterstitial *interstitial = [[AdMoGoInterstitialManager shareInstance] adMogoInterstitialByAppKey:MoGo_ID_IPhone];
+    interstitial.delegate = nil;
+    [[AdMoGoInterstitialManager shareInstance] removeInterstitialInstanceByAppKey:MoGo_ID_IPhone];
+}
+
+- (void)viewDidUnload{
+    [self removeNotification];
+}
 
 
 @end

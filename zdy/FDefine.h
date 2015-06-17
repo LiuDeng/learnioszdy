@@ -13,9 +13,7 @@
 #import <SVProgressHUD.h>
 
 
-
-#define GOOGLEADSBANNERKEY @"ca-app-pub-5837066748747035/4941943304"
-#define GOOGLEADSADPOSTERKEY @"ca-app-pub-5837066748747035/6418676509"
+#define MoGo_ID_IPhone @"fc8a655884fd4d829585fe3f6fe37b8f"
 
 #define UM_Key @"54e73ad1fd98c550290004bd"
 
