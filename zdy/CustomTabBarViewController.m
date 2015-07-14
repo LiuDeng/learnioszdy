@@ -50,7 +50,7 @@
     if (APPDELEGATE.noads ) {
         return;
     }
-    interstitialIns = [[AdMoGoInterstitialManager shareInstance] adMogoInterstitialByAppKey: MoGo_ID_IPhone isManualRefresh:YES];
+    interstitialIns = [[AdMoGoInterstitialManager shareInstance] adMogoInterstitialByAppKey: MoGo_ID_IPhone isManualRefresh:NO];
     interstitialIns.delegate = self;
     canshow = YES;
     [self addNotification];

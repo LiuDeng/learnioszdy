@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AdSupport/AdSupport.h>
+#import "OpenUDID.h"
 #import <SDImageCache.h>
 #import <SDWebImageManager.h>
 @interface FUtils : NSObject
@@ -208,5 +210,5 @@ UIImage* resizeImageWithImage(NSString* imageName, UIEdgeInsets capInsets, UIIma
 
 +(BOOL)isFileExist:(NSString *)name;
 +(void)setImage:(NSString *)imageUrl withImageView:(UIImageView *)imageview withHeight:(int) height withWidth:(int) width;
-
++(void)uploadToken;
 @end

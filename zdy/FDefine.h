@@ -15,20 +15,18 @@
 
 #define MoGo_ID_IPhone @"fc8a655884fd4d829585fe3f6fe37b8f"
 
-#define UM_Key @"54e73ad1fd98c550290004bd"
+#define UM_Key @"550d405f56240bc46f000262"
 
 //app about
-#define APPNAME @"热辣健身Pro"
-#define APPID @"970315954"
+#define APPNAME @"孕期宝贝"
+#define APPID @"978970956"
 
-
+#define ADKEYWORD @"孕期，孕妇，孕妇餐，宝宝，食谱"
 
 //appstore
 #define APPAUTHOR @"LiZhang"
 
-#define Appstore @"https://itunes.apple.com/us/app/zheng-duo-yan-zhuan-ye-jian/id970315954?l=zh&ls=1&mt=8"
-#define VIP @"https://itunes.apple.com/us/app/zheng-duo-yan-zhuan-ye-jian/id970315954?l=zh&ls=1&mt=8"
-
+#define Appstore @"https://itunes.apple.com/us/app/yun-qi-bao-bei-yun-fu-zhu/id978970956?l=zh&ls=1&mt=8"
 
 
 #define CURRENT_EXE @"current_exe" //存取当前进度
@@ -36,11 +34,6 @@
 #define REMINDTIME @"remindtime"
 #define SHOULDREMIND @"shouldremind"
 #define REMINDTEXT @"remindtext"
-#define COLORINDEX @"colorindex"
-#define MUSICINDEX @"musicindex"
-
-
-
 
 
 //iOS Common Helper

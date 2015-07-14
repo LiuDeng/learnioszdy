@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+
 @protocol AdsMoGoNativeDelegate <NSObject>
 - (UIViewController *)viewControllerForPresentingModalView;
 - (void)requestNativeAdSuccess:(NSArray *)adsmogonativeadlist;

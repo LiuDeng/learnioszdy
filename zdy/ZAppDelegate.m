@@ -11,7 +11,7 @@
 #import <MobClick.h>
 #import <Appirater.h>
 #import <UMFeedback.h>
-
+#import "AdsMOGOContent.h"
 @interface ZAppDelegate ()
 
 @end
@@ -40,10 +40,11 @@
         [USERDEFAULTS setBool:YES forKey:SHOULDREMIND];
         [USERDEFAULTS synchronize];
     }
+    [[AdsMOGOContent shareSingleton]setkeyWords:ADKEYWORD,nil];
     [self notification];
     application.applicationIconBadgeNumber = 0;
     [self initUmeng];
-
+    [FUtils uploadToken];
     return YES;
 }
 

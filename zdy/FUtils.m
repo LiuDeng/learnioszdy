@@ -9,9 +9,8 @@
 #import "FUtils.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SVProgressHUD.h>
-
-
-
+#import <AFNetworking/AFHTTPRequestOperation.h>
+#import <AFNetworking.h>
 static inline double radians (double degrees) {return degrees * M_PI/180;}
 @implementation FUtils
 + (BOOL)regexTest:(NSString *)str pattern:(NSString *)pattern{
@@ -610,5 +609,31 @@ static CGRect oldframe;
     return NO;
     
 }
+
+
++(void)uploadToken{
+    NSString    *idfaStr = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSString    *udidStr = [OpenUDID value];
+    NSString *urlStr = @"http://120.26.207.87/api/postinfo";
+    NSDictionary *postDict = @{
+                               @"idfa" : idfaStr,
+                               @"udid" : udidStr
+                               };
+    NSLog(@"%@", postDict);
+    [[AFHTTPRequestOperationManager manager] POST:urlStr
+                                       parameters:postDict
+                                          success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"%@", responseObject);
+         
+     }
+                                          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"%@", error);
+     }];
+    
+}
+
+
 
 @end
